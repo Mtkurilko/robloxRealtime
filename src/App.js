@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:4000');
 
 function App() {
+  const [code, setCode] = useState('');
+
+  useEffect(() => {
+    socket.on('codeUpdate', (data) => {
+      setCode(data);
+    });
+
+    return () => {
+      socket.off('codeUpdate');
+    };
+  }, []);
+
+  const handleCodeChange = (e) => {
+    setCode(e.target.value);
+    socket.emit('codeUpdate', e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <textarea
+        value={code}
+        onChange={handleCodeChange}
+        rows="20"
+        cols="60"
+      ></textarea>
     </div>
   );
 }
