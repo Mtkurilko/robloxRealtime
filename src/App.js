@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LuaRunner from './components/LuaRunner';
 
 import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
@@ -24,6 +25,7 @@ function App() {
   };
 
   return (
+    <>
     <div className="Box">
       <Editor
         theme="vs-dark"
@@ -31,11 +33,15 @@ function App() {
         width="45vw"
         defaultLanguage="lua"
         value={code}
-        defaultValue="// 'This is a placeholder, start below'"
+        defaultValue="-- 'This is a placeholder, start below'"
         onChange={handleCodeChange}
         className="Edit-Box"
       />
     </div>
+    <div className="consoleArea">
+        <LuaRunner code={code} />
+    </div>
+    </>
   );
 }
 

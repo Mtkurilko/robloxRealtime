@@ -13,6 +13,14 @@
   width: 100vw;
 }
 
+.consoleArea {
+  position: absolute;
+  left: 90%;
+  top: 10%;
+  display: flex;
+  align-items: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

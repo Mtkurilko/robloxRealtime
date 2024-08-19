@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "fengari-web": "^0.1.4",
     "monaco-editor": "^0.50.0",
     "monaco-editor-react": "^1.0.2",
     "monaco-languages": "^2.11.1",
