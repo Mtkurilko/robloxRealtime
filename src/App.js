@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
+import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
-import MyEditor from './components/MyEditor'
 
 const socket = io('http://localhost:4000');
 
@@ -17,17 +18,20 @@ function App() {
     };
   }, []);
 
-  const handleCodeChange = (e) => {
-    setCode(e.target.value);
-    socket.emit('codeUpdate', e.target.value);
+  const handleCodeChange = (value,event) => {
+    setCode(value);
+    socket.emit('codeUpdate', value);
   };
 
   return (
     <div>
-      <MyEditor
-        value={code}
-        onChange={handleCodeChange}
-      />
+      <Editor
+      height="90vh"
+      defaultLanguage="lua"
+      value={code}
+      defaultValue="// This is a placeholder, start below"
+      onChange={handleCodeChange}
+    />
     </div>
   );
 }
