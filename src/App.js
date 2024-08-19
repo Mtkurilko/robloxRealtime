@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import MyEditor from './components/MyEditor'
 
 const socket = io('http://localhost:4000');
 
@@ -23,12 +24,10 @@ function App() {
 
   return (
     <div>
-      <textarea
+      <MyEditor
         value={code}
         onChange={handleCodeChange}
-        rows="20"
-        cols="60"
-      ></textarea>
+      />
     </div>
   );
 }
