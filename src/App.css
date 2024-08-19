@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw;
 }
 
 .App-logo {
@@ -11,6 +22,12 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.Edit-Box {
+  vertical-align: center;
+  width: 45vw; /* 50% of the viewport width */
+  height: 90vh; /* 90% of the viewport height */
 }
 
 .App-header {

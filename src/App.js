@@ -24,14 +24,17 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="Box">
       <Editor
-      height="90vh"
-      defaultLanguage="lua"
-      value={code}
-      defaultValue="// This is a placeholder, start below"
-      onChange={handleCodeChange}
-    />
+        theme="vs-dark"
+        height="90vh"
+        width="45vw"
+        defaultLanguage="lua"
+        value={code}
+        defaultValue="// 'This is a placeholder, start below'"
+        onChange={handleCodeChange}
+        className="Edit-Box"
+      />
     </div>
   );
 }

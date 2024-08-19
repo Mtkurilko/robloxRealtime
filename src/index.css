@@ -1,10 +1,40 @@
 body {
+  vertical-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../public/images/texture.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.Box {
+  padding: 0.85%;
+  background-color: rgba(195, 162, 119, 0.49);
+  border-radius: 6%;
+  filter: drop-shadow(2px 2px 5px);
+}
+
+.Edit-Box {
+  background-color: #1e1e1e;
+  padding: 1%;
+  border-radius: 5%;
+  overflow: hidden;
+  filter: drop-shadow(2px 2px 5px);
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 code {
