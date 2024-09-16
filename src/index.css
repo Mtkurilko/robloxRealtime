@@ -50,6 +50,15 @@ pre {
   align-items: center;
 }
 
+.run {
+  font-size: 2vh;
+  background-color: forestgreen;
+}
+
+.clear {
+  margin-top: 1vh;
+}
+
 #root {
   width: 100vw;
   height: 100vh;

@@ -22,6 +22,11 @@ const ConsoleCapture = () => {
     };
   }, []);
 
+  // Function to clear the logs
+  const clearLogs = () => {
+    setLogs([]);
+  };
+
   return (
     <div>
       <h3>Captured Console Output</h3>
@@ -32,6 +37,7 @@ const ConsoleCapture = () => {
           logs.map((log, index) => <p key={index}>{log}</p>)
         )}
       </div>
+      <button onClick={clearLogs} style={{ marginTop: '1vh' }}>Clear Console</button>
     </div>
   );
 };

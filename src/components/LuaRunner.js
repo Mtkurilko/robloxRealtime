@@ -13,17 +13,22 @@ function LuaRunner({ code }) {
       }
   };
 
+  const clearLuaCode = () => {
+    setOutput('No return yet...')
+  };
+
   return (
-    <div className="lua-runner">
-      <button onClick={runLuaCode}>Run Lua Code</button>
-        <pre><ConsoleCapture/>
-        <h3>Return Value</h3>
-        <div id="console-output" style={{backgroundColor: '#808080', padding: '10px', borderRadius: '5px'}}>
-            {output}
-        </div>
+  <div className="lua-runner">
+      <button className="run" onClick={runLuaCode}>Run</button>
+      <pre><ConsoleCapture/>
+      <h3>Return Value</h3>
+      <div id="console-output" style={{backgroundColor: '#808080', padding: '10px', borderRadius: '5px'}}>
+          {output}
+      </div>
+      <button className="clear" onClick={clearLuaCode}>Clear</button>
       </pre>
-    </div>
-);
+  </div>
+  );
 }
 
 export default LuaRunner;
