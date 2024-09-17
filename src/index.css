@@ -59,6 +59,18 @@ pre {
   margin-top: 1vh;
 }
 
+.runIcon {
+  margin-left: 0.5vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  float: right;
+  background-image: url("../public/images/run.png");
+  background-size: 2.5vh;
+  width: 2.5vh;
+  height: 2.5vh;
+}
+
 #root {
   width: 100vw;
   height: 100vh;

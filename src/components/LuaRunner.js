@@ -19,7 +19,7 @@ function LuaRunner({ code }) {
 
   return (
   <div className="lua-runner">
-      <button className="run" onClick={runLuaCode}>Run</button>
+      <button className="run" onClick={runLuaCode}>Run <div className="runIcon"></div></button>
       <pre><ConsoleCapture/>
       <h3>Return Value</h3>
       <div id="console-output" style={{backgroundColor: '#808080', padding: '10px', borderRadius: '5px'}}>
