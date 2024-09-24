@@ -56,6 +56,7 @@ function InputBox({ onFileLoad }) {
             <div className="JoinRoom">
                 <pre>
                     <h3>Join Room ▼</h3>
+                    <p id="yourId">Room ID: {localStorage.getItem('username')}</p>
                     <form onSubmit={roomRequest}>
                         <input
                             type="password"

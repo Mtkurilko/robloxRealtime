@@ -3,7 +3,6 @@ import LuaRunner from './components/LuaRunner';
 import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
 import InputBox from "./components/InputBox";
-import { useFileContent } from './components/useFileContent';
 
 const socket = io('http://localhost:4000');
 
@@ -18,7 +17,6 @@ socket.on('userJoined', (message) => {
 function App() {
   const [code, setCode] = useState('');
   const [username, setUsername] = useState('null');
-  const { fileContent, loadCode, handleFileChange } = useFileContent();
   const usernameRef = useRef('null');  // useRef to store username
 
 
@@ -30,7 +28,7 @@ function App() {
         usernameRef.current = storedUsername;  // Keep ref updated
         socket.emit('createRoom', storedUsername);
       } else {
-        const newUsername = (Math.random() + 1).toString(36).substring(2);
+        const newUsername = (Math.random() + 1).toString(36).substring(5);
         localStorage.setItem('username', newUsername);
         setUsername(newUsername);
         usernameRef.current = newUsername;  // Keep ref updated
