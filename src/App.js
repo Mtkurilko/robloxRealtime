@@ -2,52 +2,47 @@ import React, { useEffect, useState, useRef } from 'react';
 import LuaRunner from './components/LuaRunner';
 import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
-import InputBox from "./components/InputBox";
+import InputBox from './components/InputBox';
 
-const socket = io('http://localhost:4000');
-
-socket.on('roomCreated', (roomId) => {
-  // When the room is created
-});
-
-socket.on('userJoined', (message) => {
-  // Something to do when other user's join
-});
+const socket = io('http://148.100.178.33:4000');
 
 function App() {
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState('-- This is just a placeholder, stare below here\n'); // Current code value
+  const [remoteCode, setRemoteCode] = useState(''); // Code from remote updates
   const [username, setUsername] = useState('null');
-  const usernameRef = useRef('null');  // useRef to store username
-
+  const usernameRef = useRef('null');
+  const editorRef = useRef(null); // Ref to store the editor instance
+  const isTyping = useRef(false); // To check if the user is typing
 
   useEffect(() => {
     function onJoin() {
       let storedUsername = localStorage.getItem('username');
       if (storedUsername) {
         setUsername(storedUsername);
-        usernameRef.current = storedUsername;  // Keep ref updated
+        usernameRef.current = storedUsername;
         socket.emit('createRoom', storedUsername);
       } else {
         const newUsername = (Math.random() + 1).toString(36).substring(5);
         localStorage.setItem('username', newUsername);
         setUsername(newUsername);
-        usernameRef.current = newUsername;  // Keep ref updated
+        usernameRef.current = newUsername;
         socket.emit('createRoom', newUsername);
-        }
       }
+    }
 
-    // Call onJoin once on component mount
     onJoin();
 
-    // Clean up the socket connection
     return () => {
-      // socket.off('codeUpdate');
+      socket.off('codeUpdate');
     };
   }, []);
 
   useEffect(() => {
     socket.on('codeUpdate', (data) => {
-      setCode(data);
+      if (!isTyping.current) {
+        setRemoteCode(data);
+        setCode(data); // Update the editor only when not typing
+      }
     });
 
     return () => {
@@ -55,20 +50,30 @@ function App() {
     };
   }, []);
 
-  const handleCodeChange = (value, event) => {
+  const handleCodeChange = (value) => {
+    isTyping.current = true;
     setCode(value);
-    socket.emit('codeUpdate', value, username);
+
+    // Emit the new code with a short delay to allow continuous typing
+    setTimeout(() => {
+      socket.emit('codeUpdate', value, username);
+      isTyping.current = false;
+    }, 300); // Debounce by 300ms
+  };
+
+  const handleEditorDidMount = (editor) => {
+    editorRef.current = editor; // Store editor instance in the ref
   };
 
   const handleFileLoad = (content) => {
-    setCode(content); // Update the editor with the file content
+    setCode(content);
     socket.emit('codeUpdate', content, username);
   };
 
   return (
     <>
       <div>
-        <InputBox onFileLoad={handleFileLoad} />
+        <InputBox onFileLoad={handleFileLoad} code={code} />
       </div>
       <div className="Box">
         <Editor
@@ -77,8 +82,8 @@ function App() {
           width="45vw"
           defaultLanguage="lua"
           value={code}
-          defaultValue="-- 'This is a placeholder, start below'"
           onChange={handleCodeChange}
+          onMount={handleEditorDidMount}
           className="Edit-Box"
         />
       </div>

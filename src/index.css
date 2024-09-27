@@ -55,7 +55,17 @@ pre {
   height: 20vh;
   position: absolute;
   right: 77%;
-  top: 50%;
+  top: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.ExportArea {
+  width: 20vw;
+  height: 20vh;
+  position: absolute;
+  right: 77%;
+  top: 61%;
   display: flex;
   align-items: center;
 }
