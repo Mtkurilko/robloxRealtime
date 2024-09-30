@@ -8,7 +8,6 @@ const socket = io('http://148.100.178.33:4000');
 
 function App() {
   const [code, setCode] = useState('-- This is just a placeholder, stare below here\n'); // Current code value
-  const [remoteCode, setRemoteCode] = useState(''); // Code from remote updates
   const [username, setUsername] = useState('null');
   const usernameRef = useRef('null');
   const editorRef = useRef(null); // Ref to store the editor instance
@@ -40,7 +39,6 @@ function App() {
   useEffect(() => {
     socket.on('codeUpdate', (data) => {
       if (!isTyping.current) {
-        setRemoteCode(data);
         setCode(data); // Update the editor only when not typing
       }
     });
@@ -75,6 +73,7 @@ function App() {
       <div>
         <InputBox onFileLoad={handleFileLoad} code={code} />
       </div>
+      <div className="Box-Border">
       <div className="Box">
         <Editor
           theme="vs-dark"
@@ -86,6 +85,7 @@ function App() {
           onMount={handleEditorDidMount}
           className="Edit-Box"
         />
+      </div>
       </div>
       <div className="consoleArea">
         <LuaRunner code={code} />

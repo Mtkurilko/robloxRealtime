@@ -20,12 +20,12 @@ function LuaRunner({ code }) {
   return (
   <div className="lua-runner">
       <button className="run" onClick={runLuaCode}>Run <div className="runIcon"></div></button>
-      <pre><ConsoleCapture/>
-      <h3>Return Value</h3>
-      <div id="console-output" style={{backgroundColor: '#808080', padding: '10px', borderRadius: '5px'}}>
-          {output}
+      <pre className={"outputBox"}><ConsoleCapture />
+      <h3 style={{color: 'indianred'}}>Return Value</h3>
+      <div className="console-output">
+          <p>{output}</p>
       </div>
-      <button className="clear" onClick={clearLuaCode}>Clear</button>
+      <button style={{borderColor: 'indianred'}} className="clear" onClick={clearLuaCode}>Clear</button>
       </pre>
   </div>
   );

@@ -29,15 +29,15 @@ const ConsoleCapture = () => {
 
   return (
     <div>
-      <h3>Captured Console Output</h3>
-      <div id="console-output" style={{ backgroundColor: '#808080', padding: '10px', borderRadius: '5px' }}>
+      <h3 style={{color: 'lightseagreen'}}>Captured Console Output</h3>
+      <div className="console-output">
         {logs.length === 0 ? (
           <p>No logs yet...</p>
         ) : (
           logs.map((log, index) => <p key={index}>{log}</p>)
         )}
       </div>
-      <button onClick={clearLogs} style={{ marginTop: '1vh' }}>Clear Console</button>
+      <button style={{borderColor: 'lightseagreen', marginTop: '1vh' }} onClick={clearLogs}>Clear Console</button>
     </div>
   );
 };

@@ -120,7 +120,7 @@ async function save(fileHandle, url) {
         <>
             <div className="JoinRoom">
                 <pre>
-                    <h3>Join Room ▼</h3>
+                    <h3 style={{color: 'dodgerblue'}}>Join Room ▼</h3>
                     <p id="yourId">Room ID: {localStorage.getItem('username')}</p>
                     <form onSubmit={roomRequest}>
                         <input
@@ -149,7 +149,7 @@ async function save(fileHandle, url) {
             </div>
             <div className="InputArea">
                 <pre>
-                    <h3>Import Files ▼</h3>
+                    <h3 style={{color: 'yellow'}}>Import Files ▼</h3>
                     <form onSubmit={loadCode}>
                         <input
                             type="file"
@@ -159,6 +159,7 @@ async function save(fileHandle, url) {
                         />
                         <input
                             type="submit"
+                            style={{borderColor: 'yellow'}}
                             name="Confirm"
                             value="Import"
                             onClick={(e) => {
@@ -172,10 +173,11 @@ async function save(fileHandle, url) {
             </ div>
             <div className="ExportArea">
                 <pre>
-                    <h3>Export Files ▼</h3>
+                    <h3 style={{color: 'orange'}}>Export Files ▼</h3>
                     <form onSubmit={exportFile}>
                         <input
                             type="submit"
+                            style={{borderColor: 'orange'}}
                             name="Confirm"
                             value="Export"
                             onClick={(e) => {
