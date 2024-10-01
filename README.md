@@ -17,11 +17,11 @@ This project provides a collaborative, real-time code editing environment for Ro
 - **Live Updates**: All changes are synchronized in real-time, so everyone in the session sees updates as they happen.
   
 ## Images
-![Image 1](public/images/Example 1.png)
-![Image 2](public/images/Example 2.png)
-![Image 3](public/images/Example 3.png)
-![Image 4](public/images/Example 4.png)
-![Image 5](public/images/Example 5.png)
+![Image 1](public/images/Example%201.png)
+![Image 2](public/images/Example%202.png)
+![Image 3](public/images/Example%203.png)
+![Image 4](public/images/Example%204.png)
+![Image 5](public/images/Example%205.png)
 
 ## Goals
 
