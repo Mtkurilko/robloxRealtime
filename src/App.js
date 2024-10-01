@@ -4,7 +4,7 @@ import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
 import InputBox from './components/InputBox';
 
-const socket = io('http://148.100.178.33:4000');
+const socket = io('http://148.100.178.33:4000'); // CHANGE TO YOUR IP OR REMAP SOCKET TO BACKEND
 
 function App() {
   const [code, setCode] = useState('-- This is just a placeholder, stare below here\n'); // Current code value
