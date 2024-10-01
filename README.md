@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Roblox Live Edit - Collaborative Lua Coding Environment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Frontend**: `roblox-live-edit`  - run `npm start`
 
-## Available Scripts
+**Backend**: `backend`  - run `node index.js`
 
-In the project directory, you can run:
+This project provides a collaborative, real-time code editing environment for Roblox developers using Lua. It allows users to write, edit, and run code in a homemade console, and it facilitates collaboration via a WebSocket connection.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Real-Time Collaboration**: Multiple users can join a session to write and edit Lua scripts together in real-time.
+- **WebSocket Environment**: The program utilizes WebSockets for seamless and instant communication between users.
+- **Custom Console**: Includes a homemade console for running scripts and viewing output.
+- **File Management**: Users can import and export Lua files to work on existing projects or save progress.
+- **Room-Based Collaboration**: Create or join rooms to collaborate with others on different projects.
+- **Code Execution**: Instantly run Lua code within the collaborative environment and see the output in real-time.
+- **Live Updates**: All changes are synchronized in real-time, so everyone in the session sees updates as they happen.
+  
+## Images
+![Image 1](public/images/Example 1.png)
+![Image 2](public/images/Example 2.png)
+![Image 3](public/images/Example 3.png)
+![Image 4](public/images/Example 4.png)
+![Image 5](public/images/Example 5.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Goals
 
-### `npm test`
+- **Code Cleanup**: Regular maintenance to ensure clean and efficient code, with well-documented functions and clear docstrings.
+- **Efficient Data Handling**: Streamlined the data handling processes to reduce latency and ensure smooth collaboration.
+- **Enhanced Error Handling**: Added comprehensive error handling to improve the robustness of the platform during real-time interactions.
+- **Modularized Code**: Refactored larger components into smaller, reusable modules to enhance scalability and maintainability.
+- **UI Enhancements**: Continual improvements to the UI for an intuitive and seamless user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development
 
-### `npm run build`
+- **React Frontend**: Built using React to create a responsive, real-time collaborative environment for users.
+- **Node.js Backend**: Manages WebSocket connections and backend logic, ensuring smooth communication between users and the server.
+- **WebSocket Integration**: Real-time communication powered by Socket.io for instant updates and interaction.
+- **File Import/Export**: Easy file management allowing users to load existing Lua files into the editor and export files for offline work.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup & Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Mtkurilko/roblox-live-edit.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install Frontend Dependencies**:
+Navigate to the frontend directory and install dependencies:
+   ```bash
+   cd roblox-live-edit
+   npm install
+   
+3. **Install Backend Dependencies**:
+Navigate to the backend directory and install dependencies:
+   ```bash
+   cd backend
+   npm install
+   
+4. **Run the Frontend**:
+In the roblox-live-edit directory, start the React frontend:
+   ```bash
+   npm start
+   
+5. **Run the Backend**:
+In the backend directory, start the Node.js server:
+   ```bash
+   node index.js
 
-### `npm run eject`
+6. **Join a Room**:
+Navigate to the console in your browser, where you can create or join a collaborative room with other users.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. **Collaborate**:
+Start editing Lua code together in real-time. Any changes you make are instantly synchronized across all connected users.
